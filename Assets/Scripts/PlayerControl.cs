@@ -10,7 +10,8 @@ public class PlayerControl : MonoBehaviour
     public float forwardForce = 100;
     public float jumpSpeed = 100;
     private float horizontalAxisInput;
-    private Vector3 moveDirection = Vector3.zero;
+    private Vector3 rightLocation = Vector3.zero;
+    private Vector3 leftLocation = Vector3.zero;
     public float gravity = 20.0f;
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class PlayerControl : MonoBehaviour
     {
         horizontalAxisInput = Input.GetAxisRaw(axis);
 
+
         if (player.transform.position.y < -1)
         {
             cc.enabled = false;
@@ -40,20 +42,15 @@ public class PlayerControl : MonoBehaviour
 
     void MovePlayer()
     {
-        if (cc.isGrounded)
-        {
-            moveDirection = new Vector3(horizontalAxisInput, 0.0f, forwardForce);
-            moveDirection *= speed;
-
-            if (Input.GetButton("Jump"))
-            {
-                moveDirection.y = jumpSpeed;
-            }
+        if (horizontalAxisInput > 0) {
+            player.transform.position = new Vector3(3, 1.01f, 0);
         }
-
-        moveDirection.y -= gravity * Time.deltaTime;
-
-        cc.Move(moveDirection * Time.deltaTime);
+        if (horizontalAxisInput < 0) {
+            player.transform.position = new Vector3(-3, 1.01f, 0);
+        }
+        if (horizontalAxisInput == 0) {
+            player.transform.position = new Vector3(0, 1.01f, 0);
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit collision)
