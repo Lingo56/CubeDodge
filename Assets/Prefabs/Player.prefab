@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4992236583399668154}
   - component: {fileID: 4992236583399668158}
   - component: {fileID: 4992236583399668159}
-  - component: {fileID: 4992236583399668149}
   - component: {fileID: 4992236583399668156}
   m_Layer: 0
   m_Name: Player
@@ -107,10 +106,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f270f29e2447e84bbdcba589dc02b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cc: {fileID: 4992236583399668149}
   player: {fileID: 4992236583399668148}
-  axis: Horizontal
+  gameManager: {fileID: 0}
+  leftTelepoint: {fileID: 0}
+  midTelepoint: {fileID: 0}
+  rightTelepoint: {fileID: 0}
   speed: 10
+  maxSpeed: 50
+  maxAcc: 10
+  decelerate: 10
   forwardForce: 2
   jumpSpeed: 10
   gravity: 30
@@ -127,24 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   control: {fileID: 4992236583399668158}
---- !u!143 &4992236583399668149
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4992236583399668148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.0001
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
 --- !u!114 &4992236583399668156
 MonoBehaviour:
   m_ObjectHideFlags: 0

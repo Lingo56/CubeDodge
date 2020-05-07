@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class DespawnTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collision)
-    {
-        Destroy(collision.gameObject);
+    private void OnTriggerEnter(Collider collision) {
+            Destroy(collision.gameObject);
     }
 }
