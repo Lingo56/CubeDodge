@@ -9,11 +9,24 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 1;
     public Vector3 respawnPoint;
     public GameObject player;
-
     public GameObject completeLevelUI;
+    public int playerHealth;
+    public int playerScore;
 
     public void CompleteLevel() {
         completeLevelUI.SetActive(true);
+    }
+
+    public void HealthDown() {
+        playerHealth--;
+
+        if (playerHealth <= 0) {
+            PlayerDeath();
+        }
+    }
+
+    public void ScoreUp() {
+        playerScore++;
     }
 
     public void PlayerDeath() {
@@ -26,6 +39,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Restart() {
+        Debug.Log("ded");
         player.GetComponent<CharacterController>().transform.position = respawnPoint;
     }
 }

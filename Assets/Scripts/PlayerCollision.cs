@@ -7,5 +7,4 @@ public class PlayerCollision : MonoBehaviour
 
     public PlayerControl control;
     public GameObject player;
-
 }

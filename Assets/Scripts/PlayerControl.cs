@@ -41,9 +41,9 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Obsticle")
+        if (collision.gameObject.tag == "Obsticle")
         {
             gameManager.GetComponent<GameManager>().PlayerDeath();
         }
