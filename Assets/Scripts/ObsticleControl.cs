@@ -8,17 +8,15 @@ public class ObsticleControl : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     public float forwardForce = 100;
     public int rotationAmount = 5;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool movementEnabled = true;
 
     // Update is called once per frame
     void Update()
     {
-        obsticleMovement();
+        if (movementEnabled)
+        {
+            obsticleMovement();
+        }
     }
 
     void obsticleMovement() {

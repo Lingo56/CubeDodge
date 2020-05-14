@@ -16,13 +16,6 @@ public class PlayerControl : MonoBehaviour
     public float decelerate = 10;
     public float forwardForce = 100;
     public float jumpSpeed = 100;
-    public float gravity = 20.0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Updates with the physics engine
     private void FixedUpdate()
@@ -37,7 +30,7 @@ public class PlayerControl : MonoBehaviour
 
         if (player.transform.position.y < -1)
         {
-            gameManager.GetComponent<GameManager>().PlayerDeath();
+            gameManager.GetComponent<GameManager>().HealthDown();
         }
     }
 
@@ -45,7 +38,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obsticle")
         {
-            gameManager.GetComponent<GameManager>().PlayerDeath();
+            gameManager.GetComponent<GameManager>().HealthDown();
         }
     }
 

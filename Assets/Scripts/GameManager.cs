@@ -5,22 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    bool gameHasEnded = false;
     public float restartDelay = 1;
     public Vector3 respawnPoint;
     public GameObject player;
     public GameObject completeLevelUI;
-    public int playerHealth;
+    private GameObject[] enemies;
+    public int playerFullHealth = 3;
+    private int playerCurrentHealth;
     public int playerScore;
 
-    public void CompleteLevel() {
-        completeLevelUI.SetActive(true);
+    void Start()
+    {
+        playerCurrentHealth = playerFullHealth;
+        Debug.Log(playerCurrentHealth);
     }
 
     public void HealthDown() {
-        playerHealth--;
+        playerCurrentHealth--;
+        Debug.Log(playerCurrentHealth);
 
-        if (playerHealth <= 0) {
+        if (playerCurrentHealth <= 0) {
             PlayerDeath();
         }
     }
@@ -30,16 +34,24 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerDeath() {
-        if (gameHasEnded == false)
+        Debug.Log("Score: " + playerScore);
+        playerScore = 0;
+        playerCurrentHealth = playerFullHealth;
+        DestroyAllEnemies();
+    }
+
+    void DestroyAllEnemies()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Obsticle");
+
+        for (var i = 0; i < enemies.Length; i++)
         {
-            gameHasEnded = true;
-            Invoke("Restart", restartDelay);
-            gameHasEnded = false;
+            Destroy(enemies[i]);
         }
     }
 
-    void Restart() {
-        Debug.Log("ded");
-        player.GetComponent<CharacterController>().transform.position = respawnPoint;
+    public void CompleteLevel()
+    {
+        completeLevelUI.SetActive(true);
     }
 }
