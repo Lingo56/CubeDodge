@@ -5,7 +5,8 @@ public class BlockSpawner : MonoBehaviour
 {
 
     public Transform[] spawnPoints;
-    public GameObject blockPrefab;
+    public GameObject obstaclePrefab;
+    public GameObject collectablePrefab;
     public float spawnRate = 2f;
     float nextSpawn = 0f;
 
@@ -33,7 +34,10 @@ public class BlockSpawner : MonoBehaviour
             {
                 if (randomIndex != i)
                 {
-                    Instantiate(blockPrefab, spawnPoints[i].position, Quaternion.identity);
+                    Instantiate(obstaclePrefab, spawnPoints[i].position, Quaternion.identity);
+                }
+                else {
+                    Instantiate(collectablePrefab, spawnPoints[i].position, Quaternion.identity);
                 }
             }
         }

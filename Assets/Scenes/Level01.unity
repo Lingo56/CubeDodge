@@ -2285,6 +2285,11 @@ PrefabInstance:
       propertyPath: respawnPoint.y
       value: 1.01
       objectReference: {fileID: 0}
+    - target: {fileID: 205514423723474074, guid: e9fa218a50ea98042ad6373df7d9b50f,
+        type: 3}
+      propertyPath: playerHealth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 205514423723474077, guid: e9fa218a50ea98042ad6373df7d9b50f,
         type: 3}
       propertyPath: m_LocalPosition.x
