@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    public GameObject gameManager;
     public Transform player;
     public TMP_Text scoreText;
 
@@ -17,6 +18,6 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = player.position.z.ToString("0");
+        scoreText.text = gameManager.GetComponent<GameManager>().playerScore.ToString();
     }
 }

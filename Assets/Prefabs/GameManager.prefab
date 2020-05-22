@@ -44,4 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartDelay: 0.5
+  player: {fileID: 0}
   completeLevelUI: {fileID: 0}
+  playerFullHealth: 3
+  playerScore: 0
+  objectSpeed: 60

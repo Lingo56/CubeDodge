@@ -7,13 +7,15 @@ public class BlockSpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject obstaclePrefab;
     public GameObject collectablePrefab;
+    public GameObject rotationTarget;
+    private Vector3 relativePos;
     public float spawnRate = 2f;
     float nextSpawn = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        relativePos = rotationTarget.transform.position;
     }
 
     private void FixedUpdate()
@@ -34,10 +36,10 @@ public class BlockSpawner : MonoBehaviour
             {
                 if (randomIndex != i)
                 {
-                    Instantiate(obstaclePrefab, spawnPoints[i].position, Quaternion.identity);
+                    Instantiate(obstaclePrefab, spawnPoints[i].position, Quaternion.LookRotation(relativePos, Vector3.up));
                 }
                 else {
-                    Instantiate(collectablePrefab, spawnPoints[i].position, Quaternion.identity);
+                    Instantiate(collectablePrefab, spawnPoints[i].position, Quaternion.LookRotation(relativePos, Vector3.up));
                 }
             }
         }

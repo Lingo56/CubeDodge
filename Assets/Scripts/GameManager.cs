@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public float restartDelay = 1;
-    public Vector3 respawnPoint;
     public GameObject player;
     public GameObject completeLevelUI;
     private GameObject[] enemies;
     public int playerFullHealth = 3;
     private int playerCurrentHealth;
     public int playerScore;
+    public int objectSpeed;
 
     void Start()
     {

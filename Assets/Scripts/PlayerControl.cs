@@ -40,6 +40,10 @@ public class PlayerControl : MonoBehaviour
         {
             gameManager.GetComponent<GameManager>().HealthDown();
         }
+        if (collision.gameObject.tag == "Collectable")
+        {
+            gameManager.GetComponent<GameManager>().ScoreUp();
+        }
     }
 
     void MovePlayer()

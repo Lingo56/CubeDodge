@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 4416320841131184219}
   - component: {fileID: 1183708273033857167}
   - component: {fileID: 7568102570971733443}
-  - component: {fileID: 5864479237375844216}
+  - component: {fileID: 6245160498008089399}
+  - component: {fileID: 8634011143498395252}
   m_Layer: 0
   m_Name: Collectable
-  m_TagString: Obsticle
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +93,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5864479237375844216
+--- !u!114 &6245160498008089399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,10 +102,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 8100414828148860167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bc0c530836680a4f8e3bbc70a18c26f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ffe59e3c93a1d540827ddf159e01f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obsticle: {fileID: 8100414828148860167}
-  forwardForce: 60
+  collectable: {fileID: 8100414828148860167}
+  gameManager: {fileID: 205514423723474075, guid: e9fa218a50ea98042ad6373df7d9b50f,
+    type: 3}
   rotationAmount: 0
   movementEnabled: 1
+--- !u!54 &8634011143498395252
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100414828148860167}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
