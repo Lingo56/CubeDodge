@@ -8,13 +8,18 @@ public class BlockSpawner : MonoBehaviour
     public GameObject obstaclePrefab;
     public GameObject collectablePrefab;
     public GameObject rotationTarget;
+    public GameObject gameManager;
     private Vector3 relativePos;
-    public float spawnRate = 2f;
+    private int scoreInterval;
+    public float defaultSpawnRate;
+    public float maxSpawnRate;
+    private float spawnRate;
     float nextSpawn = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnRate = defaultSpawnRate;
         relativePos = rotationTarget.transform.position;
     }
 
@@ -23,10 +28,33 @@ public class BlockSpawner : MonoBehaviour
         SpawnBlocks();
     }
 
+    void GameSpeed()
+    {
+        scoreInterval = gameManager.GetComponent<GameManager>().playerScore;
+
+        switch (scoreInterval)
+        {
+            case 0:
+                spawnRate = defaultSpawnRate;
+                break;
+            case 50:
+                spawnRate = spawnRate - 0.2f;
+                break;
+            case 100:
+                spawnRate = spawnRate - 0.2f;
+                break;
+        }
+
+        if (spawnRate < maxSpawnRate) {
+            spawnRate = maxSpawnRate;
+        }
+    }
+
     void SpawnBlocks()
     {
         if (Time.time > nextSpawn)
         {
+            GameSpeed();
             nextSpawn = Time.time + spawnRate;
 
             // Code to execute after the delay

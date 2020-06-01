@@ -43,6 +43,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag == "Collectable")
         {
             gameManager.GetComponent<GameManager>().ScoreUp();
+            Destroy(collision.gameObject);
         }
     }
 

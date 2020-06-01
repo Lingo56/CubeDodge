@@ -10,19 +10,17 @@ public class GameManager : MonoBehaviour
     public GameObject completeLevelUI;
     private GameObject[] enemies;
     public int playerFullHealth = 3;
-    private int playerCurrentHealth;
+    public int playerCurrentHealth;
     public int playerScore;
     public int objectSpeed;
 
     void Start()
     {
         playerCurrentHealth = playerFullHealth;
-        Debug.Log(playerCurrentHealth);
     }
 
     public void HealthDown() {
         playerCurrentHealth--;
-        Debug.Log(playerCurrentHealth);
 
         if (playerCurrentHealth <= 0) {
             PlayerDeath();
@@ -34,7 +32,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void PlayerDeath() {
-        Debug.Log("Score: " + playerScore);
         playerScore = 0;
         playerCurrentHealth = playerFullHealth;
         DestroyAllEnemies();
