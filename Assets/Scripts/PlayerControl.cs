@@ -3,7 +3,8 @@
 public class PlayerControl : MonoBehaviour
 {
     public GameObject player;
-    public GameObject gameManager;
+    public GameObject playerStatus;
+    public GameObject scoreControl;
     public Transform leftTelepoint;
     public Transform midTelepoint;
     public Transform rightTelepoint;
@@ -30,7 +31,7 @@ public class PlayerControl : MonoBehaviour
 
         if (player.transform.position.y < -1)
         {
-            gameManager.GetComponent<GameManager>().HealthDown();
+            playerStatus.GetComponent<PlayerStatus>().HealthDown();
         }
     }
 
@@ -38,11 +39,12 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obsticle")
         {
-            gameManager.GetComponent<GameManager>().HealthDown();
+            playerStatus.GetComponent<PlayerStatus>().HealthDown();
+
         }
         if (collision.gameObject.tag == "Collectable")
         {
-            gameManager.GetComponent<GameManager>().ScoreUp();
+            scoreControl.GetComponent<Score>().ScoreUp();
             Destroy(collision.gameObject);
         }
     }

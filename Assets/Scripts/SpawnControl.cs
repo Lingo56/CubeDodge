@@ -1,18 +1,19 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class BlockSpawner : MonoBehaviour
+public class SpawnControl : MonoBehaviour
 {
 
     public Transform[] spawnPoints;
     public GameObject obstaclePrefab;
     public GameObject collectablePrefab;
     public GameObject rotationTarget;
-    public GameObject gameManager;
+    private GameObject[] enemies;
     private Vector3 relativePos;
-    private int scoreInterval;
+    private int spawnSpeedInterval;
     public float defaultSpawnRate;
     public float maxSpawnRate;
+    public float spawnMultiplier;
     private float spawnRate;
     float nextSpawn = 0f;
 
@@ -28,25 +29,29 @@ public class BlockSpawner : MonoBehaviour
         SpawnBlocks();
     }
 
-    void GameSpeed()
+    // Adjusts the spawn rate of obsticles and collectables based on in-game events
+    void SetSpawnRate()
     {
-        scoreInterval = gameManager.GetComponent<GameManager>().playerScore;
+        spawnSpeedInterval = ;
 
-        switch (scoreInterval)
-        {
-            case 0:
-                spawnRate = defaultSpawnRate;
-                break;
-            case 50:
-                spawnRate = spawnRate - 0.2f;
-                break;
-            case 100:
-                spawnRate = spawnRate - 0.2f;
-                break;
-        }
+        spawnRate = spawnRate - (spawnSpeedInterval * spawnMultiplier);
 
         if (spawnRate < maxSpawnRate) {
             spawnRate = maxSpawnRate;
+        }
+
+        if (spawnSpeedInterval == 0) {
+            spawnRate = defaultSpawnRate;
+        }
+    }
+
+    public void DestroyAllEnemies()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Obsticle");
+
+        for (var i = 0; i < enemies.Length; i++)
+        {
+            Destroy(enemies[i]);
         }
     }
 
@@ -54,7 +59,7 @@ public class BlockSpawner : MonoBehaviour
     {
         if (Time.time > nextSpawn)
         {
-            GameSpeed();
+            SetSpawnRate();
             nextSpawn = Time.time + spawnRate;
 
             // Code to execute after the delay

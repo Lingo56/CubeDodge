@@ -7,6 +7,7 @@ public class Score : MonoBehaviour
 {
     public GameObject gameManager;
     public Transform player;
+    public int playerScore;
     public TMP_Text scoreText;
 
     // Start is called before the first frame update
@@ -15,9 +16,14 @@ public class Score : MonoBehaviour
         
     }
 
+    public void ScoreUp()
+    {
+        playerScore++;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = gameManager.GetComponent<GameManager>().playerScore.ToString();
+        scoreText.text = playerScore.ToString();
     }
 }

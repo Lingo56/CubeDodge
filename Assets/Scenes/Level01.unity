@@ -1769,7 +1769,10 @@ MonoBehaviour:
   collectablePrefab: {fileID: 8100414828148860167, guid: b521a4091436f4c44a66429b61b98f93,
     type: 3}
   rotationTarget: {fileID: 1622165319}
-  spawnRate: 0.3
+  gameManager: {fileID: 1696399334}
+  defaultSpawnRate: 0.7
+  maxSpawnRate: 0.3
+  spawnMultiplier: 0.00001
 --- !u!4 &1369983199
 Transform:
   m_ObjectHideFlags: 0
@@ -2836,12 +2839,12 @@ PrefabInstance:
     - target: {fileID: 3336481240215646035, guid: 681190e4e8eef9f4188325fe11a566c2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017063833
+      value: 0.000000017063924
       objectReference: {fileID: 0}
     - target: {fileID: 3336481240215646035, guid: 681190e4e8eef9f4188325fe11a566c2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000002209553
+      value: -0.000000002210239
       objectReference: {fileID: 0}
     - target: {fileID: 3336481240215646035, guid: 681190e4e8eef9f4188325fe11a566c2,
         type: 3}
@@ -3089,12 +3092,12 @@ PrefabInstance:
     - target: {fileID: 7828918803673664900, guid: 2df07b6c6a2f3a14fad5845cbe10d341,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017063833
+      value: 0.000000017063924
       objectReference: {fileID: 0}
     - target: {fileID: 7828918803673664900, guid: 2df07b6c6a2f3a14fad5845cbe10d341,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000002209553
+      value: -0.000000002210239
       objectReference: {fileID: 0}
     - target: {fileID: 7828918803673664900, guid: 2df07b6c6a2f3a14fad5845cbe10d341,
         type: 3}
