@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4416320841131184219}
   - component: {fileID: 1183708273033857167}
   - component: {fileID: 7568102570971733443}
-  - component: {fileID: 6245160498008089399}
+  - component: {fileID: 2721944678595474691}
   - component: {fileID: 8634011143498395252}
   m_Layer: 0
   m_Name: Collectable
@@ -93,7 +93,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6245160498008089399
+--- !u!114 &2721944678595474691
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,12 +102,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8100414828148860167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ffe59e3c93a1d540827ddf159e01f5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d9cbd067b257984d946d5165658b462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectable: {fileID: 8100414828148860167}
-  gameManager: {fileID: 205514423723474075, guid: e9fa218a50ea98042ad6373df7d9b50f,
-    type: 3}
+  interactable: {fileID: 8100414828148860167}
+  interactablesStats: {fileID: 11400000, guid: c9050cbe864521d469c688674fd77f54, type: 2}
   rotationAmount: 0
   movementEnabled: 1
 --- !u!54 &8634011143498395252

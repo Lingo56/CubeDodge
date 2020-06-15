@@ -2,39 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+[CreateAssetMenu(menuName = "PlayerStats")]
+public class PlayerStatus : ScriptableObject
 {
-    public GameObject score;
-    public GameObject spawnControl;
+    public int score;
     public int playerFullHealth = 3;
     public int playerCurrentHealth;
+    public float speed = 0.01f;
+    public float maxSpeed = 50;
+    public float maxAcc = 10;
+    public float decelerate = 10;
+    public float forwardForce = 100;
+    public float jumpSpeed = 100;
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        playerCurrentHealth = playerFullHealth;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void HealthDown()
-    {
-        playerCurrentHealth--;
-
-        if (playerCurrentHealth <= 0)
-        {
-            PlayerDeath();
-        }
-    }
-
-    public void PlayerDeath()
-    {
-        score.GetComponent<Score>().playerScore = 0;
-        playerCurrentHealth = playerFullHealth;
-        spawnControl.GetComponent<SpawnControl>().DestroyAllEnemies();
+        score = 0;
     }
 }

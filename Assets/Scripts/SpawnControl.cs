@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class SpawnControl : MonoBehaviour
 {
-
     public Transform[] spawnPoints;
     public GameObject obstaclePrefab;
     public GameObject collectablePrefab;
     public GameObject rotationTarget;
     private GameObject[] enemies;
     private Vector3 relativePos;
-    private int spawnSpeedInterval;
+    public float spawnDifficultyScale;
     public float defaultSpawnRate;
     public float maxSpawnRate;
     public float spawnMultiplier;
@@ -32,15 +31,13 @@ public class SpawnControl : MonoBehaviour
     // Adjusts the spawn rate of obsticles and collectables based on in-game events
     void SetSpawnRate()
     {
-        spawnSpeedInterval = ;
-
-        spawnRate = spawnRate - (spawnSpeedInterval * spawnMultiplier);
+        spawnRate = spawnRate - (spawnDifficultyScale * spawnMultiplier);
 
         if (spawnRate < maxSpawnRate) {
             spawnRate = maxSpawnRate;
         }
 
-        if (spawnSpeedInterval == 0) {
+        if (spawnDifficultyScale == 0) {
             spawnRate = defaultSpawnRate;
         }
     }

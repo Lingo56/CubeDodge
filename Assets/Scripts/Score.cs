@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    public GameObject gameManager;
-    public Transform player;
-    public int playerScore;
-    public TMP_Text scoreText;
+    public TMP_Text scoreDisplay;
+
+    public PlayerStatus playerStats;
 
     // Start is called before the first frame update
     void Start()
@@ -16,14 +15,9 @@ public class Score : MonoBehaviour
         
     }
 
-    public void ScoreUp()
-    {
-        playerScore++;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = playerScore.ToString();
+        scoreDisplay.text = playerStats.score.ToString();
     }
 }

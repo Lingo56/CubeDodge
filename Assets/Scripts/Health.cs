@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public GameObject gameManager;
+    public PlayerStatus playerStatus;
     public Transform player;
     public TMP_Text healthText;
 
@@ -18,6 +18,6 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = gameManager.GetComponent<GameManager>().playerCurrentHealth.ToString();
+        healthText.text = playerStatus.playerCurrentHealth.ToString();
     }
 }

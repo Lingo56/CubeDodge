@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1166918366697515887}
   - component: {fileID: 1166918366697515886}
   - component: {fileID: 1166918366697515873}
-  - component: {fileID: 5298722182248870776}
+  - component: {fileID: 2245846777635110989}
   - component: {fileID: 8145134451387837186}
   m_Layer: 0
   m_Name: Obsticle
@@ -93,7 +93,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.5, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5298722182248870776
+--- !u!114 &2245846777635110989
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,12 +102,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166918366697515872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bc0c530836680a4f8e3bbc70a18c26f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d9cbd067b257984d946d5165658b462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obsticle: {fileID: 1166918366697515872}
-  gameManager: {fileID: 205514423723474075, guid: e9fa218a50ea98042ad6373df7d9b50f,
-    type: 3}
+  interactable: {fileID: 1166918366697515872}
+  interactablesStats: {fileID: 11400000, guid: c9050cbe864521d469c688674fd77f54, type: 2}
   rotationAmount: 0
   movementEnabled: 1
 --- !u!54 &8145134451387837186

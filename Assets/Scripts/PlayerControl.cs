@@ -2,21 +2,21 @@
 
 public class PlayerControl : MonoBehaviour
 {
+    public PlayerStatus playerStats;
     public GameObject player;
-    public GameObject playerStatus;
     public GameObject scoreControl;
+    public GameObject spawnControl;
     public Transform leftTelepoint;
     public Transform midTelepoint;
     public Transform rightTelepoint;
 
     private string axis = "Horizontal";
     private float horizontalAxisInput;
-    public float speed = 0.01f;
-    public float maxSpeed = 50;
-    public float maxAcc = 10;
-    public float decelerate = 10;
-    public float forwardForce = 100;
-    public float jumpSpeed = 100;
+
+    private void Start()
+    {
+        playerStats.playerCurrentHealth = playerStats.playerFullHealth;
+    }
 
     // Updates with the physics engine
     private void FixedUpdate()
@@ -31,7 +31,7 @@ public class PlayerControl : MonoBehaviour
 
         if (player.transform.position.y < -1)
         {
-            playerStatus.GetComponent<PlayerStatus>().HealthDown();
+            HealthDown();
         }
     }
 
@@ -39,29 +39,46 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.gameObject.tag == "Obsticle")
         {
-            playerStatus.GetComponent<PlayerStatus>().HealthDown();
+            HealthDown();
 
         }
         if (collision.gameObject.tag == "Collectable")
         {
-            scoreControl.GetComponent<Score>().ScoreUp();
+            playerStats.score++;
             Destroy(collision.gameObject);
         }
+    }
+
+    public void HealthDown()
+    {
+        playerStats.playerCurrentHealth--;
+
+        if (playerStats.playerCurrentHealth <= 0)
+        {
+            PlayerDeath();
+        }
+    }
+
+    public void PlayerDeath()
+    {
+        playerStats.score = 0;
+        playerStats.playerCurrentHealth = playerStats.playerFullHealth;
+        spawnControl.GetComponent<SpawnControl>().DestroyAllEnemies();
     }
 
     void MovePlayer()
     {
         if (horizontalAxisInput > 0) {
             //SpeedControl(rightTelepoint);
-            player.transform.position = Vector3.MoveTowards(player.transform.position, rightTelepoint.position, speed);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, rightTelepoint.position, playerStats.speed);
         }
         if (horizontalAxisInput < 0) {
             //SpeedControl(leftTelepoint);
-            player.transform.position = Vector3.MoveTowards(player.transform.position, leftTelepoint.position, speed);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, leftTelepoint.position, playerStats.speed);
         }
         if (horizontalAxisInput == 0) {
             //SpeedControl(midTelepoint);
-            player.transform.position = Vector3.MoveTowards(player.transform.position, midTelepoint.position, speed);
+            player.transform.position = Vector3.MoveTowards(player.transform.position, midTelepoint.position, playerStats.speed);
         }
     }
 
@@ -71,11 +88,11 @@ public class PlayerControl : MonoBehaviour
 
         float distance = (float)System.Math.Sqrt(deltaX * deltaX);
 
-        float dvx = deltaX * maxSpeed / distance; //Normalizing and multiplying by max speed
-        deltaX = dvx - speed;
+        float dvx = deltaX * playerStats.maxSpeed / distance; //Normalizing and multiplying by max speed
+        deltaX = dvx - playerStats.speed;
         float diffSize = (float)System.Math.Sqrt(deltaX * deltaX);
-        float ax = maxAcc * deltaX / diffSize;
+        float ax = playerStats.maxAcc * deltaX / diffSize;
 
-        speed += ax * Time.deltaTime; // dt is the time that passed since the last frame
+        playerStats.speed += ax * Time.deltaTime; // dt is the time that passed since the last frame
     }
 }
