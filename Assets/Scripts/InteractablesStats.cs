@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Assets/ScriptableObjects/InteractablesStats")]
+[CreateAssetMenu(menuName = "Interactables Stats")]
 public class InteractablesStats : ScriptableObject
 {
     public float interactableSpeed = 200;

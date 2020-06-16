@@ -58,6 +58,7 @@ public class SpawnControl : MonoBehaviour
         {
             SetSpawnRate();
             nextSpawn = Time.time + spawnRate;
+            spawnDifficultyScale++;
 
             // Code to execute after the delay
             int randomIndex = Random.Range(0, spawnPoints.Length);

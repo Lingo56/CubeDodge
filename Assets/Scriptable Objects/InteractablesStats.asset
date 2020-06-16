@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90bbe126621b5264eb8713e98be12535, type: 3}
   m_Name: InteractablesStats
   m_EditorClassIdentifier: 
-  interactableSpeed: 100
+  interactableSpeed: 75

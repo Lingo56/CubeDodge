@@ -7,7 +7,7 @@ public class Score : MonoBehaviour
 {
     public TMP_Text scoreDisplay;
 
-    public PlayerStatus playerStats;
+    public PlayerStats playerStats;
 
     // Start is called before the first frame update
     void Start()

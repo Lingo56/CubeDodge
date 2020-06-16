@@ -2,10 +2,11 @@
 
 public class PlayerControl : MonoBehaviour
 {
-    public PlayerStatus playerStats;
+    public PlayerStats playerStats;
     public GameObject player;
     public GameObject scoreControl;
     public GameObject spawnControl;
+    public GameObject overheatControl;
     public Transform leftTelepoint;
     public Transform midTelepoint;
     public Transform rightTelepoint;
@@ -45,6 +46,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag == "Collectable")
         {
             playerStats.score++;
+            overheatControl.GetComponent<OverheatControl>().overheatEnabled = true;
             Destroy(collision.gameObject);
         }
     }
@@ -64,6 +66,8 @@ public class PlayerControl : MonoBehaviour
         playerStats.score = 0;
         playerStats.playerCurrentHealth = playerStats.playerFullHealth;
         spawnControl.GetComponent<SpawnControl>().DestroyAllEnemies();
+        spawnControl.GetComponent<SpawnControl>().spawnDifficultyScale = 0;
+        overheatControl.GetComponent<OverheatControl>().overheatEnabled = false;
     }
 
     void MovePlayer()

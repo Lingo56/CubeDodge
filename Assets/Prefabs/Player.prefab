@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4992236583399668155}
   - component: {fileID: 4992236583399668154}
   - component: {fileID: 4992236583399668158}
+  - component: {fileID: 2727173416162088928}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -111,3 +112,15 @@ MonoBehaviour:
   leftTelepoint: {fileID: 0}
   midTelepoint: {fileID: 0}
   rightTelepoint: {fileID: 0}
+--- !u!114 &2727173416162088928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4992236583399668148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efcfe4409c1431499adcccc883d0d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

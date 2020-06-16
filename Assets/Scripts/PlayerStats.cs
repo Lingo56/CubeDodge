@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "PlayerStats")]
-public class PlayerStatus : ScriptableObject
+[CreateAssetMenu(menuName = "Player Stats")]
+public class PlayerStats : ScriptableObject
 {
     public int score;
     public int playerFullHealth = 3;
