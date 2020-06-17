@@ -14,7 +14,7 @@ public class InteractablesControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        forwardForce = interactablesStats.interactableSpeed;
+        
     }
 
     // Update is called once per frame
@@ -28,6 +28,8 @@ public class InteractablesControl : MonoBehaviour
 
     void Movement()
     {
+        forwardForce = interactablesStats.interactableSpeed;
+
         moveDirection = new Vector3(0.0f, 0.0f, forwardForce);
 
         transform.Translate(moveDirection * Time.deltaTime);

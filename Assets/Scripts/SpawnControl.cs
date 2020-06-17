@@ -13,8 +13,9 @@ public class SpawnControl : MonoBehaviour
     public float defaultSpawnRate;
     public float maxSpawnRate;
     public float spawnMultiplier;
-    private float spawnRate;
+    float spawnRate;
     float nextSpawn = 0f;
+    public bool enemiesEnabled = true;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +66,7 @@ public class SpawnControl : MonoBehaviour
 
             for (int i = 0; i < spawnPoints.Length; i++)
             {
-                if (randomIndex != i)
+                if (randomIndex != i && enemiesEnabled)
                 {
                     Instantiate(obstaclePrefab, spawnPoints[i].position, Quaternion.LookRotation(relativePos, Vector3.up));
                 }

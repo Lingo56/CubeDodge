@@ -1758,6 +1758,7 @@ MonoBehaviour:
   defaultSpawnRate: 0.7
   maxSpawnRate: 0.3
   spawnMultiplier: 0.0001
+  enemiesEnabled: 1
 --- !u!4 &1369983199
 Transform:
   m_ObjectHideFlags: 0
@@ -3064,6 +3065,17 @@ PrefabInstance:
       propertyPath: overheatControl
       value: 
       objectReference: {fileID: 1179350356}
+    - target: {fileID: 4992236583399668158, guid: c5abbd9bc38094d449104bc48c6b1ef2,
+        type: 3}
+      propertyPath: cooldownControl
+      value: 
+      objectReference: {fileID: 1179350356}
+    - target: {fileID: 4992236583399668158, guid: c5abbd9bc38094d449104bc48c6b1ef2,
+        type: 3}
+      propertyPath: interactablesStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c9050cbe864521d469c688674fd77f54,
+        type: 2}
     - target: {fileID: 4992236583399668159, guid: c5abbd9bc38094d449104bc48c6b1ef2,
         type: 3}
       propertyPath: player
@@ -3087,6 +3099,22 @@ PrefabInstance:
     - target: {fileID: 2727173416162088928, guid: c5abbd9bc38094d449104bc48c6b1ef2,
         type: 3}
       propertyPath: playerControl
+      value: 
+      objectReference: {fileID: 1179350356}
+    - target: {fileID: 2727173416162088928, guid: c5abbd9bc38094d449104bc48c6b1ef2,
+        type: 3}
+      propertyPath: overheatTime
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 964708303242306545, guid: c5abbd9bc38094d449104bc48c6b1ef2,
+        type: 3}
+      propertyPath: interactablesStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c9050cbe864521d469c688674fd77f54,
+        type: 2}
+    - target: {fileID: 964708303242306545, guid: c5abbd9bc38094d449104bc48c6b1ef2,
+        type: 3}
+      propertyPath: overheatControl
       value: 
       objectReference: {fileID: 1179350356}
     m_RemovedComponents:
