@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: InteractablesStats
   m_EditorClassIdentifier: 
   interactableSpeed: 75
+  defaultInteractableSpeed: 75

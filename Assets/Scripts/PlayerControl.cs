@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerControl : MonoBehaviour
 {
     public PlayerStats playerStats;
+    public InteractablesStats interactablesStats;
     public GameObject player;
     public GameObject scoreControl;
     public GameObject spawnControl;
     public GameObject overheatControl;
+    public GameObject cooldownControl;
     public Transform leftTelepoint;
     public Transform midTelepoint;
     public Transform rightTelepoint;
@@ -83,6 +86,15 @@ public class PlayerControl : MonoBehaviour
         if (horizontalAxisInput == 0) {
             //SpeedControl(midTelepoint);
             player.transform.position = Vector3.MoveTowards(player.transform.position, midTelepoint.position, playerStats.speed);
+        }
+        if (CrossPlatformInputManager.GetButtonDown("Jump")) {
+            cooldownControl.GetComponent<CooldownControl>().statsSet = false;
+            cooldownControl.GetComponent<CooldownControl>().cooldownEnabled = true;
+        }
+        if (CrossPlatformInputManager.GetButtonUp("Jump"))
+        {
+            cooldownControl.GetComponent<CooldownControl>().cooldownEnabled = false;
+            cooldownControl.GetComponent<CooldownControl>().ResetStats();
         }
     }
 
