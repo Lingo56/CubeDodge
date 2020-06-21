@@ -7,6 +7,7 @@ public class CooldownControl : MonoBehaviour
     public InteractablesStats interactablesStats;
     public GameObject overheatControl;
     float initialSpeed;
+    float initialSpawnRate;
     public bool cooldownEnabled = false;
     public bool statsSet = false;
 
@@ -25,6 +26,7 @@ public class CooldownControl : MonoBehaviour
         if (statsSet == false)
         {
             initialSpeed = interactablesStats.interactableSpeed;
+            interactablesStats.interactableSpeed *= 1.67f;
             interactablesStats.interactableSpeed *= 1.67f;
             overheatControl.GetComponent<OverheatControl>().overheatEnabled = false;
             statsSet = true;
