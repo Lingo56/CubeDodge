@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4416320841131184219}
   - component: {fileID: 1183708273033857167}
   - component: {fileID: 7568102570971733443}
-  - component: {fileID: 2721944678595474691}
   - component: {fileID: 8634011143498395252}
   m_Layer: 0
   m_Name: Collectable
@@ -28,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8100414828148860167}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4416320841131184219
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -93,22 +92,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.5, y: 9, z: 4}
   m_Center: {x: 0, y: 4.5, z: 0}
---- !u!114 &2721944678595474691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8100414828148860167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d9cbd067b257984d946d5165658b462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactablesStats: {fileID: 11400000, guid: c9050cbe864521d469c688674fd77f54, type: 2}
-  interactable: {fileID: 8100414828148860167}
-  rotationAmount: 0
-  movementEnabled: 1
 --- !u!54 &8634011143498395252
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -4,10 +4,12 @@ using UnityEngine;
 public class SpawnControl : MonoBehaviour
 {
     public Transform[] spawnPoints;
+    public GameObject[] tilePrefabs;
     public GameObject obstaclePrefab;
     public GameObject collectablePrefab;
     public GameObject rotationTarget;
     private GameObject[] enemies;
+    public Transform spawnPosition;
     private Vector3 relativePos;
     public float spawnDifficultyScale;
     public float defaultSpawnRate;
@@ -22,26 +24,9 @@ public class SpawnControl : MonoBehaviour
     {
         spawnRate = defaultSpawnRate;
         relativePos = rotationTarget.transform.position;
+        SpawnTiles();
     }
 
-    private void FixedUpdate()
-    {
-        SpawnBlocks();
-    }
-
-    // Adjusts the spawn rate of obsticles and collectables based on in-game events
-    void SetSpawnRate()
-    {
-        spawnRate = spawnRate - (spawnDifficultyScale * spawnMultiplier);
-
-        if (spawnRate < maxSpawnRate) {
-            spawnRate = maxSpawnRate;
-        }
-
-        if (spawnDifficultyScale == 0) {
-            spawnRate = defaultSpawnRate;
-        }
-    }
 
     public void DestroyAllEnemies()
     {
@@ -53,10 +38,19 @@ public class SpawnControl : MonoBehaviour
         }
     }
 
-    void SpawnBlocks()
+    public void SpawnTiles()
+    {
+            // Code to execute after the delay
+            int randomIndex = Random.Range(0, tilePrefabs.Length);
+
+            Instantiate(tilePrefabs[randomIndex], spawnPosition.position, transform.rotation);   
+    }
+
+    void SpawnRandomBlocks()
     {
         if (Time.time > nextSpawn)
         {
+            
             SetSpawnRate();
             nextSpawn = Time.time + spawnRate;
             spawnDifficultyScale++;
@@ -74,6 +68,22 @@ public class SpawnControl : MonoBehaviour
                     Instantiate(collectablePrefab, spawnPoints[i].position, Quaternion.LookRotation(relativePos, Vector3.up));
                 }
             }
+        }
+    }
+
+    // Adjusts the spawn rate of obsticles and collectables based on in-game events
+    void SetSpawnRate()
+    {
+        spawnRate = spawnRate - (spawnDifficultyScale * spawnMultiplier);
+
+        if (spawnRate < maxSpawnRate)
+        {
+            spawnRate = maxSpawnRate;
+        }
+
+        if (spawnDifficultyScale == 0)
+        {
+            spawnRate = defaultSpawnRate;
         }
     }
 }

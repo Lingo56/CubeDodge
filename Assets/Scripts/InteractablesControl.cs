@@ -30,7 +30,7 @@ public class InteractablesControl : MonoBehaviour
     {
         forwardForce = interactablesStats.interactableSpeed;
 
-        moveDirection = new Vector3(0.0f, 0.0f, forwardForce);
+        moveDirection = new Vector3(0.0f, 0.0f, -forwardForce);
 
         transform.Translate(moveDirection * Time.deltaTime);
 

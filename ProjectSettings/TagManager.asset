@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectable
   - Obsticle
+  - TileTrigger
   layers:
   - Default
   - TransparentFX
