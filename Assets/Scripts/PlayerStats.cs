@@ -14,6 +14,8 @@ public class PlayerStats : ScriptableObject
     public float decelerate = 10;
     public float forwardForce = 100;
     public float jumpSpeed = 100;
+    public float cooldownSpeedMultiplier = 2;
+    public float cooldownRateMultiplier = 5;
 
     private void OnEnable()
     {

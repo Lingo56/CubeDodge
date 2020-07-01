@@ -21,3 +21,5 @@ MonoBehaviour:
   decelerate: 10
   forwardForce: 100
   jumpSpeed: 100
+  cooldownSpeedMultiplier: 1.5
+  cooldownRateMultiplier: 7.5

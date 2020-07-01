@@ -5,12 +5,12 @@ using UnityEngine;
 public class CooldownControl : MonoBehaviour
 {
     public InteractablesStats interactablesStats;
+    public PlayerStats playerStats;
     public GameObject overheatControl;
     float initialSpeed;
     float initialSpawnRate;
     public bool cooldownEnabled = false;
     public bool statsSet = false;
-
 
     // Update is called once per frame
     void Update()
@@ -26,15 +26,15 @@ public class CooldownControl : MonoBehaviour
         if (statsSet == false)
         {
             initialSpeed = interactablesStats.interactableSpeed;
-            interactablesStats.interactableSpeed *= 1.67f;
-            interactablesStats.interactableSpeed *= 1.67f;
+            interactablesStats.interactableSpeed *= playerStats.cooldownSpeedMultiplier;
+            interactablesStats.interactableSpeed *= playerStats.cooldownSpeedMultiplier;
             overheatControl.GetComponent<OverheatControl>().overheatEnabled = false;
             statsSet = true;
         }
 
         if (overheatControl.GetComponent<OverheatControl>().timeLeft < overheatControl.GetComponent<OverheatControl>().overheatTime)
         {
-            overheatControl.GetComponent<OverheatControl>().timeLeft += Time.deltaTime*2;
+            overheatControl.GetComponent<OverheatControl>().timeLeft += Time.deltaTime * playerStats.cooldownRateMultiplier;
         }
     }
 
