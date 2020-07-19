@@ -69,7 +69,6 @@ public class PlayerControl : MonoBehaviour
         playerStats.score = 0;
         playerStats.playerCurrentHealth = playerStats.playerFullHealth;
         spawnControl.GetComponent<SpawnControl>().DestroyAllEnemies();
-        spawnControl.GetComponent<SpawnControl>().spawnDifficultyScale = 0;
         overheatControl.GetComponent<OverheatControl>().overheatEnabled = false;
     }
 

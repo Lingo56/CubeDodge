@@ -11,7 +11,7 @@ public class SpawnTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "TileTrigger")
         {
-            spawnControl.SpawnTiles();
+            spawnControl.SpawnEasyTiles();
         }
     }
 }
