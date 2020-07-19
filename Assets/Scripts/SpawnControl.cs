@@ -5,6 +5,8 @@ public class SpawnControl : MonoBehaviour
 {
     private GameObject[] enemies;
     public GameObject[] easyTiles;
+    public GameObject[] mediumTiles;
+    public GameObject[] hardTiles;
     public GameObject rotationTarget;
     public Transform spawnPosition;
     private Vector3 relativePos;
@@ -35,5 +37,21 @@ public class SpawnControl : MonoBehaviour
             int randomIndex = Random.Range(0, easyTiles.Length);
 
             Instantiate(easyTiles[randomIndex], spawnPosition.position, transform.rotation);   
+    }
+
+    public void SpawnMediumTiles()
+    {
+        // Code to execute after the delay
+        int randomIndex = Random.Range(0, easyTiles.Length);
+
+        Instantiate(mediumTiles[randomIndex], spawnPosition.position, transform.rotation);
+    }
+
+    public void SpawnHardTiles()
+    {
+        // Code to execute after the delay
+        int randomIndex = Random.Range(0, easyTiles.Length);
+
+        Instantiate(hardTiles[randomIndex], spawnPosition.position, transform.rotation);
     }
 }
