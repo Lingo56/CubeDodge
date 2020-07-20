@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     public int score;
+    public int mediumDifficultyScore;
+    public int hardDifficultyScore;
+    public int levelCompleteScore;
     public int playerFullHealth = 3;
     public int playerCurrentHealth;
     public float speed = 0.01f;

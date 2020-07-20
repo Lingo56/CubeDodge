@@ -10,7 +10,7 @@ public class SpawnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        difficultyControl.SetDifficulty();
+        difficultyControl.GetComponent<DifficultyControl>().SetDifficulty();
         difficultyLevel = difficultyControl.GetDifficulty();
 
         if (collision.gameObject.tag == "TileTrigger")

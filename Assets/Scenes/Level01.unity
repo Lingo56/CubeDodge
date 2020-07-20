@@ -1702,6 +1702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1369983199}
   - component: {fileID: 1369983198}
+  - component: {fileID: 1369983200}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -1725,11 +1726,9 @@ MonoBehaviour:
   - {fileID: 1736128968522449841, guid: 07640bd57b2e492488ede0f3207a96bc, type: 3}
   - {fileID: 5120762095804594153, guid: 44e66a47f6464aa4985530fe992028d2, type: 3}
   mediumTiles:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4715310145643696571, guid: e3e728417bf3f06448f77c6eeb086e58, type: 3}
   hardTiles:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3491981880629877846, guid: 28e6f62bcecbfb944b82cce8f6283ebe, type: 3}
   rotationTarget: {fileID: 1622165319}
   spawnPosition: {fileID: 1012771650}
   defaultSpawnRate: 2
@@ -1750,6 +1749,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1369983200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369983197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06ce51c9a3a7e643ae9aada93ce7f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyLevel: 0
+  playerStats: {fileID: 11400000, guid: 5b64af16fe9ba7d48a0e24cb3bb6d2ce, type: 2}
 --- !u!1 &1370228373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2733,6 +2746,11 @@ PrefabInstance:
       propertyPath: spawnControl
       value: 
       objectReference: {fileID: 1369983198}
+    - target: {fileID: 1911715733318434106, guid: 68dd190343d5fe64b9e09b5bdc1977a2,
+        type: 3}
+      propertyPath: difficultyControl
+      value: 
+      objectReference: {fileID: 1369983200}
     - target: {fileID: 1911715733318434111, guid: 68dd190343d5fe64b9e09b5bdc1977a2,
         type: 3}
       propertyPath: m_Enabled
@@ -3047,16 +3065,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c9050cbe864521d469c688674fd77f54,
         type: 2}
-    - target: {fileID: 4992236583399668159, guid: c5abbd9bc38094d449104bc48c6b1ef2,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1179350356}
-    - target: {fileID: 3186650767001256212, guid: c5abbd9bc38094d449104bc48c6b1ef2,
-        type: 3}
-      propertyPath: score
-      value: 
-      objectReference: {fileID: 1843815612}
     - target: {fileID: 2727173416162088928, guid: c5abbd9bc38094d449104bc48c6b1ef2,
         type: 3}
       propertyPath: meterProgress
@@ -3094,6 +3102,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 5b64af16fe9ba7d48a0e24cb3bb6d2ce,
         type: 2}
+    - target: {fileID: 4992236583399668159, guid: c5abbd9bc38094d449104bc48c6b1ef2,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1179350356}
+    - target: {fileID: 3186650767001256212, guid: c5abbd9bc38094d449104bc48c6b1ef2,
+        type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 1843815612}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 4992236583399668159, guid: c5abbd9bc38094d449104bc48c6b1ef2, type: 3}

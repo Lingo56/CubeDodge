@@ -9,15 +9,22 @@ public class DifficultyControl : MonoBehaviour
 
     public void SetDifficulty()
     {
+        if (playerStats.score >= playerStats.mediumDifficultyScore && playerStats.score < playerStats.hardDifficultyScore) {
+
+        }
+        if (playerStats.score >= playerStats.hardDifficultyScore && playerStats.score < playerStats.levelCompleteScore) {
+
+        }
+
         switch(playerStats.score)
         {
             case 0:
                 difficultyLevel = 0;
                 break;
-            case 75:
+            case 45:
                 difficultyLevel = 1;
                 break;
-            case 150:
+            case 90:
                 difficultyLevel = 2;
                 break;
         }

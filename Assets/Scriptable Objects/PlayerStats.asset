@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   score: 0
+  mediumDifficultyScore: 40
+  hardDifficultyScore: 80
+  levelCompleteScore: 100
   playerFullHealth: 3
   playerCurrentHealth: 3
   speed: 0.5

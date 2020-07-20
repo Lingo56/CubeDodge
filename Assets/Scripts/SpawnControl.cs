@@ -33,16 +33,16 @@ public class SpawnControl : MonoBehaviour
 
     public void SpawnEasyTiles()
     {
-            // Code to execute after the delay
-            int randomIndex = Random.Range(0, easyTiles.Length);
+        // Code to execute after the delay
+        int randomIndex = Random.Range(0, easyTiles.Length);
 
-            Instantiate(easyTiles[randomIndex], spawnPosition.position, transform.rotation);   
+        Instantiate(easyTiles[randomIndex], spawnPosition.position, transform.rotation);   
     }
 
     public void SpawnMediumTiles()
     {
         // Code to execute after the delay
-        int randomIndex = Random.Range(0, easyTiles.Length);
+        int randomIndex = Random.Range(0, mediumTiles.Length);
 
         Instantiate(mediumTiles[randomIndex], spawnPosition.position, transform.rotation);
     }
@@ -50,7 +50,7 @@ public class SpawnControl : MonoBehaviour
     public void SpawnHardTiles()
     {
         // Code to execute after the delay
-        int randomIndex = Random.Range(0, easyTiles.Length);
+        int randomIndex = Random.Range(0, hardTiles.Length);
 
         Instantiate(hardTiles[randomIndex], spawnPosition.position, transform.rotation);
     }
