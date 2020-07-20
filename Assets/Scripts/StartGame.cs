@@ -5,17 +5,9 @@ using UnityEngine;
 
 public class StartGame : MonoBehaviour
 {
-
-    public GameObject player;
-
     public void Start()
     {
-        Invoke("LoadNextScene", 0.35f);
-        enableExplosion();
-    }
-
-    private void enableExplosion() {
-        //player.GetComponent<SphereExploder>().enabled = true;
+        LoadNextScene();
     }
 
     public void LoadNextScene() {
