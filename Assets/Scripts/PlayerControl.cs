@@ -50,7 +50,6 @@ public class PlayerControl : MonoBehaviour
         {
             playerStats.score++;
             overheatControl.GetComponent<OverheatControl>().overheatEnabled = true;
-            Destroy(collision.gameObject);
         }
     }
 

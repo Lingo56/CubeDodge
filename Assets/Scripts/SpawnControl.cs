@@ -4,19 +4,17 @@ using UnityEngine;
 public class SpawnControl : MonoBehaviour
 {
     private GameObject[] enemies;
+    private GameObject[] collectables;
     public GameObject[] easyTiles;
     public GameObject[] mediumTiles;
     public GameObject[] hardTiles;
     public GameObject rotationTarget;
     public Transform spawnPosition;
     private Vector3 relativePos;
-    public float defaultSpawnRate;
-    float spawnRate;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnRate = defaultSpawnRate;
         relativePos = rotationTarget.transform.position;
         SpawnEasyTiles();
     }
@@ -28,6 +26,16 @@ public class SpawnControl : MonoBehaviour
         for (var i = 0; i < enemies.Length; i++)
         {
             Destroy(enemies[i]);
+        }
+    }
+
+    public void DestroyAllCollectables()
+    {
+        collectables = GameObject.FindGameObjectsWithTag("Collectable");
+
+        for (var i = 0; i < collectables.Length; i++)
+        {
+            Destroy(collectables[i]);
         }
     }
 

@@ -6,27 +6,23 @@ public class DifficultyControl : MonoBehaviour
 {
     public int difficultyLevel;
     public PlayerStats playerStats;
+    public GameManager gameManager;
 
     public void SetDifficulty()
     {
+        if (playerStats.score < playerStats.mediumDifficultyScore)
+        {
+            difficultyLevel = 0;
+        }
         if (playerStats.score >= playerStats.mediumDifficultyScore && playerStats.score < playerStats.hardDifficultyScore) {
-
+            difficultyLevel = 1;
         }
         if (playerStats.score >= playerStats.hardDifficultyScore && playerStats.score < playerStats.levelCompleteScore) {
-
+            difficultyLevel = 2;
         }
-
-        switch(playerStats.score)
+        if (playerStats.score == playerStats.levelCompleteScore)
         {
-            case 0:
-                difficultyLevel = 0;
-                break;
-            case 45:
-                difficultyLevel = 1;
-                break;
-            case 90:
-                difficultyLevel = 2;
-                break;
+            gameManager.GetComponent<GameManager>().CompleteLevel();
         }
     }
 
