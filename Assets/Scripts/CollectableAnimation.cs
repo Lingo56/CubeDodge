@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class CollectableAnimation : MonoBehaviour
 {
-    Animator collectableAnim;
+    public Animator collectableAnim;
+    public Rigidbody rigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
-        collectableAnim = GetComponent<Animator>();
+
     }
 
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == ("Player"))
         {
-            Debug.Log("Detected Player");
+            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
             collectableAnim.SetBool("isCollected", true);
+            Debug.Log("Collision");
         }
     }
 }

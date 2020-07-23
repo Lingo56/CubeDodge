@@ -43,7 +43,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a417aae77675c6442829ff9b4fc769c5, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -106,6 +106,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -117,6 +118,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -155,6 +157,7 @@ GameObject:
   - component: {fileID: 7568102570971733443}
   - component: {fileID: 8634011143498395252}
   - component: {fileID: 7016058196349277858}
+  - component: {fileID: 3510779062543147052}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Collectable
@@ -218,3 +221,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d823fac8f16467945bb2653d030f99b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectableAnim: {fileID: 6146291927581447642}
+  rigidbody: {fileID: 8634011143498395252}
+--- !u!114 &3510779062543147052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100414828148860167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9cbd067b257984d946d5165658b462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactablesStats: {fileID: 0}
+  interactable: {fileID: 0}
+  rb: {fileID: 0}
+  rotationAmount: 0
+  movementEnabled: 1

@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public SpawnControl spawnControl;
-    public GameObject completeLevelUI;
-    public bool gameCompleted = false;
 
     public void CompleteLevel()
     {
