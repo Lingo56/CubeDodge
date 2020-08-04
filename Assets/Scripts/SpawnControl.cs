@@ -3,20 +3,48 @@ using UnityEngine;
 
 public class SpawnControl : MonoBehaviour
 {
+    [Header("Overall Variables")]
     private GameObject[] enemies;
     private GameObject[] collectables;
+    public GameObject rotationTarget;
+    private Vector3 relativePos;
+
+    [Header("Tile Spawner Variables")]
     public GameObject[] easyTiles;
     public GameObject[] mediumTiles;
     public GameObject[] hardTiles;
-    public GameObject rotationTarget;
     public Transform spawnPosition;
-    private Vector3 relativePos;
+    public bool tileSpawnerEnabled;
+
+    [Header("Time Spawner Variables")]
+    public Transform[] spawnPoints;
+    public GameObject obstaclePrefab;
+    public GameObject collectablePrefab;
+    public float difficultyMultiplier;
+    public float currentSpawnDifficulty;
+    public float maxSpawnRate;
+    public float defaultSpawnRate;
+    private float spawnRate;
+    private float nextSpawn;
+    public bool enemiesEnabled = true;
+    public bool timeSpawnerEnabled;
 
     // Start is called before the first frame update
     void Start()
     {
         relativePos = rotationTarget.transform.position;
-        SpawnEasyTiles();
+
+        if (tileSpawnerEnabled) {
+            SpawnEasyTiles();
+        }
+    }
+
+    private void Update()
+    {
+        if (timeSpawnerEnabled)
+        {
+            TimeSpawner();
+        }
     }
 
     public void DestroyAllEnemies()
@@ -61,5 +89,44 @@ public class SpawnControl : MonoBehaviour
         int randomIndex = Random.Range(0, hardTiles.Length);
 
         Instantiate(hardTiles[randomIndex], spawnPosition.position, transform.rotation);
+    }
+
+    public void TimeSpawner()
+    {
+        if (Time.time > nextSpawn)
+        {
+            SetSpawnRate();
+            nextSpawn = Time.time + spawnRate;
+            currentSpawnDifficulty++;
+            // Code to execute after the delay
+            int randomIndex = Random.Range(0, spawnPoints.Length);
+            for (int i = 0; i < spawnPoints.Length; i++)
+            {
+                if (randomIndex != i && enemiesEnabled)
+                {
+                    Instantiate(obstaclePrefab, spawnPoints[i].position, Quaternion.LookRotation(relativePos, Vector3.up));
+                }
+                else
+                {
+                    Instantiate(collectablePrefab, spawnPoints[i].position, Quaternion.LookRotation(relativePos, Vector3.up));
+                }
+            }
+        }
+    }
+
+    // Adjusts the spawn rate of obsticles and collectables based on in-game events
+    void SetSpawnRate()
+    {
+        spawnRate = spawnRate - (currentSpawnDifficulty * difficultyMultiplier);
+
+        if (spawnRate < maxSpawnRate)
+        {
+            spawnRate = maxSpawnRate;
+        }
+
+        if (currentSpawnDifficulty == 0)
+        {
+            spawnRate = defaultSpawnRate;
+        }
     }
 }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2730116845775930449}
-  - component: {fileID: 6146291927581447642}
   m_Layer: 0
   m_Name: CollectablePivot
   m_TagString: Untagged
@@ -32,25 +31,6 @@ Transform:
   m_Father: {fileID: 1117833389691548518}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6146291927581447642
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822065469746940504}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a417aae77675c6442829ff9b4fc769c5, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8099954816113631146
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +138,7 @@ GameObject:
   - component: {fileID: 8634011143498395252}
   - component: {fileID: 7016058196349277858}
   - component: {fileID: 3510779062543147052}
+  - component: {fileID: 5716378062154597864}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Collectable
@@ -191,8 +172,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.5, y: 9, z: 6}
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Size: {x: 6.5, y: 9, z: 11}
+  m_Center: {x: 0, y: 1.5, z: -2.25}
 --- !u!54 &8634011143498395252
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -205,10 +186,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!114 &7016058196349277858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,8 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d823fac8f16467945bb2653d030f99b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectableAnim: {fileID: 6146291927581447642}
-  rigidbody: {fileID: 8634011143498395252}
+  collectableAnim: {fileID: 5716378062154597864}
+  rb: {fileID: 8634011143498395252}
 --- !u!114 &3510779062543147052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,8 +216,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9cbd067b257984d946d5165658b462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactablesStats: {fileID: 0}
-  interactable: {fileID: 0}
-  rb: {fileID: 0}
+  interactablesStats: {fileID: 11400000, guid: c9050cbe864521d469c688674fd77f54, type: 2}
+  interactable: {fileID: 8100414828148860167}
+  rb: {fileID: 8634011143498395252}
   rotationAmount: 0
   movementEnabled: 1
+--- !u!95 &5716378062154597864
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100414828148860167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a417aae77675c6442829ff9b4fc769c5, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

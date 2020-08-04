@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4688621741174763104}
   - component: {fileID: 8083427534866080500}
   - component: {fileID: 1953525475464135143}
+  - component: {fileID: 1018481146609548211}
   m_Layer: 0
   m_Name: BasicTile
   m_TagString: Untagged
@@ -48,10 +49,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!65 &1953525475464135143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -66,6 +67,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 1}
   m_Center: {x: 0, y: 0, z: 120}
+--- !u!114 &1018481146609548211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688621741174763107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9cbd067b257984d946d5165658b462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactablesStats: {fileID: 11400000, guid: c9050cbe864521d469c688674fd77f54, type: 2}
+  interactable: {fileID: 4688621741174763107}
+  rb: {fileID: 8083427534866080500}
+  rotationAmount: 0
+  movementEnabled: 1
 --- !u!1 &6974203377055709770
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +196,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3

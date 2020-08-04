@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollectableAnimation : MonoBehaviour
 {
     public Animator collectableAnim;
-    public Rigidbody rigidbody;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +17,8 @@ public class CollectableAnimation : MonoBehaviour
     {
         if (col.gameObject.tag == ("Player"))
         {
-            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-            collectableAnim.SetBool("isCollected", true);
-            Debug.Log("Collision");
+            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            collectableAnim.SetBool("isCollected", true);     
         }
     }
 }
