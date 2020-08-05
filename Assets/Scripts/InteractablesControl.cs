@@ -30,10 +30,9 @@ public class InteractablesControl : MonoBehaviour
     void Movement()
     {
         forwardForce = interactablesStats.interactableSpeed;
-
         moveDirection = new Vector3(0.0f, 0.0f, -forwardForce);
-        //transform.Translate(moveDirection * Time.deltaTime);
 
+        //transform.Translate(moveDirection * Time.deltaTime);
         rb.AddForce(moveDirection);
 
         interactable.transform.Rotate(0, rotationAmount, 0);
