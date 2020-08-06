@@ -24,7 +24,7 @@ public class SpawnControl : MonoBehaviour
     public float currentSpawnDifficulty;
     public float maxSpawnRate;
     public float defaultSpawnRate;
-    private float spawnRate;
+    public float spawnRate;
     private float nextSpawn;
     public bool enemiesEnabled = true;
     public bool timeSpawnerEnabled;
@@ -33,6 +33,7 @@ public class SpawnControl : MonoBehaviour
     void Start()
     {
         relativePos = rotationTarget.transform.position;
+        spawnRate = defaultSpawnRate;
 
         if (tileSpawnerEnabled) {
             SpawnEasyTiles();

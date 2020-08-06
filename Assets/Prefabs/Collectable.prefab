@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2730116845775930449}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CollectablePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8013533960863361035}
   - component: {fileID: 6909983541004958127}
   - component: {fileID: 3053871961006708843}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CollectableModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 7016058196349277858}
   - component: {fileID: 3510779062543147052}
   - component: {fileID: 5716378062154597864}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Collectable
   m_TagString: Collectable
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!114 &7016058196349277858
 MonoBehaviour:
   m_ObjectHideFlags: 0
