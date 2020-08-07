@@ -73,21 +73,19 @@ public class PlayerControl : MonoBehaviour
         spawnControl.GetComponent<SpawnControl>().spawnRate = spawnControl.GetComponent<SpawnControl>().defaultSpawnRate;
         spawnControl.GetComponent<SpawnControl>().currentSpawnDifficulty = 0;
         spawnControl.GetComponent<SpawnControl>().DestroyAllEnemies();
+        spawnControl.GetComponent<SpawnControl>().DestroyAllCollectables();
         overheatControl.GetComponent<OverheatControl>().overheatEnabled = false;
     }
 
     void MovePlayer()
     {
         if (horizontalAxisInput > 0) {
-            //SpeedControl(rightTelepoint);
             player.transform.position = Vector3.MoveTowards(player.transform.position, rightTelepoint.position, playerStats.speed);
         }
         if (horizontalAxisInput < 0) {
-            //SpeedControl(leftTelepoint);
             player.transform.position = Vector3.MoveTowards(player.transform.position, leftTelepoint.position, playerStats.speed);
         }
         if (horizontalAxisInput == 0) {
-            //SpeedControl(midTelepoint);
             player.transform.position = Vector3.MoveTowards(player.transform.position, midTelepoint.position, playerStats.speed);
         }
         if (CrossPlatformInputManager.GetButtonDown("Jump")) {
@@ -99,19 +97,5 @@ public class PlayerControl : MonoBehaviour
             cooldownControl.GetComponent<CooldownControl>().cooldownEnabled = false;
             cooldownControl.GetComponent<CooldownControl>().ResetStats();
         }
-    }
-
-    void SpeedControl(Transform targetLocation)
-    {
-        float deltaX = Vector3.Distance(targetLocation.position, player.transform.position);
-
-        float distance = (float)System.Math.Sqrt(deltaX * deltaX);
-
-        float dvx = deltaX * playerStats.maxSpeed / distance; //Normalizing and multiplying by max speed
-        deltaX = dvx - playerStats.speed;
-        float diffSize = (float)System.Math.Sqrt(deltaX * deltaX);
-        float ax = playerStats.maxAcc * deltaX / diffSize;
-
-        playerStats.speed += ax * Time.deltaTime; // dt is the time that passed since the last frame
     }
 }
