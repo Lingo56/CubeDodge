@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject spawnControl;
     public GameObject overheatControl;
     public GameObject cooldownControl;
+    public GameObject progressBar;
     public Transform leftTelepoint;
     public Transform midTelepoint;
     public Transform rightTelepoint;
@@ -69,6 +70,8 @@ public class PlayerControl : MonoBehaviour
         playerStats.score = 0;
         playerStats.playerCurrentHealth = playerStats.playerFullHealth;
         interactablesStats.interactableSpeed = interactablesStats.defaultInteractableSpeed;
+        spawnControl.GetComponent<SpawnControl>().spawnRate = spawnControl.GetComponent<SpawnControl>().defaultSpawnRate;
+        spawnControl.GetComponent<SpawnControl>().currentSpawnDifficulty = 0;
         spawnControl.GetComponent<SpawnControl>().DestroyAllEnemies();
         overheatControl.GetComponent<OverheatControl>().overheatEnabled = false;
     }

@@ -27,7 +27,6 @@ public class CooldownControl : MonoBehaviour
         {
             initialSpeed = interactablesStats.interactableSpeed;
             interactablesStats.interactableSpeed *= playerStats.cooldownSpeedMultiplier;
-            interactablesStats.interactableSpeed *= playerStats.cooldownSpeedMultiplier;
             overheatControl.GetComponent<OverheatControl>().overheatEnabled = false;
             statsSet = true;
         }
